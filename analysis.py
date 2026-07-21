@@ -105,18 +105,30 @@ educ_corr, educ_p = stats.pearsonr(df["EDUC"], df["MMSE"])
 print(f"EDUC vs MMSE correlation: r={educ_corr:.2f}, p={educ_p:.4f}")
 
 # %% [markdown]
-# ## 7. Write-up (fill this in after running)
-#
-# After running the cells above, replace the placeholders below with your actual
-# numbers, then this section becomes the case-study text for your portfolio.
-#
-# - Sample size after cleaning: ___ visits from ___ subjects
-# - MMSE difference between Demented and Nondemented groups: mean difference of ___
-#   points (p = ___)
-# - Brain volume (nWBV) difference between groups: ___ (p = ___)
-# - Strongest correlation in the heatmap: ___ and ___ (r = ___)
-# - Education vs MMSE: r = ___, p = ___ — does this support or complicate the
-#   "cognitive reserve" idea?
-# - One sentence on what surprised you or what you'd want to check next.
+# ## 7. Write-up
+
+- Sample size after cleaning: 371 visits (Nondemented 190, Demented 144,
+  Converted 37).
+- MMSE difference between Demented (M=24.5) and Nondemented (M=29.2) groups:
+  mean difference of ~4.7 points (t=-12.40, p<0.0001). Expected, since MMSE is
+  itself part of the diagnostic criteria — this is a sanity check, not a finding.
+- Age was NOT significantly different between groups (t=-0.96, p=0.34), while
+  brain volume (nWBV) WAS significantly lower in the Demented group (0.716 vs
+  0.741, t=-6.51, p<0.0001). Because age is matched between groups, this rules
+  out "they're just older" as the explanation — the volume loss looks tied to
+  the disease process itself, not general aging.
+- Education also differed significantly (Demented M=13.7 yrs vs Nondemented
+  M=15.1 yrs, t=-4.61, p<0.0001), and EDUC correlated with MMSE at r=0.19
+  (p=0.0002) across the full sample. Direction supports the "cognitive
+  reserve" hypothesis, but the correlation is weak — education looks like a
+  background variable associated with group membership, not a strong direct
+  predictor of cognitive score on its own.
+- Caveat on the correlation heatmap: eTIV and ASF correlate at r=-0.99, and
+  MMSE/CDR at r=-0.69 — both are close to circular (ASF is mathematically
+  derived from eTIV; MMSE and CDR are two instruments measuring the same
+  underlying cognitive state), so neither is a "real" independent finding.
+  The genuinely informative, non-circular relationship is nWBV vs MMSE at
+  r=0.34 — a moderate, non-tautological link between brain volume and
+  cognitive score across the whole sample.
 
 # %%
